@@ -22,7 +22,7 @@ public class LoggerTest implements SysoutCaptureAndAssertionAbility {
     }
     //endregion
 
-    @Test //FIXME lkdfjlgkdfjglj
+    @Test //FIXME now
     public void shouldLogInteger() throws IOException {
         //region when
         Logger.log(1);
@@ -52,8 +52,7 @@ public class LoggerTest implements SysoutCaptureAndAssertionAbility {
         //endregion
     }
 
-    /*
-    TODO: implement Logger solution to match specification as tests
+
 
     @Test
     public void shouldLogChar() throws IOException {
@@ -109,5 +108,4 @@ public class LoggerTest implements SysoutCaptureAndAssertionAbility {
         //endregion
     }
 
-    */
 }

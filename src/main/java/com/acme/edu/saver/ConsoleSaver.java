@@ -1,6 +1,6 @@
-package com.acme.edu.ooaddemo2;
+package com.acme.edu.saver;
 
-public class SuperConsoleSaver implements SuperSaver {
+public class ConsoleSaver implements BigSaver {
     @Override
     public void save(String message) {
         System.out.println(message);

@@ -5,7 +5,8 @@ package com.acme.edu;
 Multi-line comment
  */
 
-import static com.acme.edu.Logger.*;
+
+import com.acme.edu.command.*;
 
 /**
  * JavaDoc comment
@@ -14,37 +15,53 @@ import static com.acme.edu.Logger.*;
  * @see java.lang.String#String()
  */
 public class Logger {
-    private static int classState;
-
-    static {
-        System.out.println("AAaaaa!!!!! WTF!!!!!!");
-    }
+    private static LoggerController logger = new LoggerController();
 
     public static void log(int message) {
-        //region Main
-        System.out.println("primitive: " + message);
-        //endregion
+        logger.log(new IntCommand(message));
     }
 
     public static void log(byte message) {
-        int local = 0; //stack, temp, auto
-        System.out.println(local);
-        System.out.println("primitive: " + message);
+        logger.log(new ByteCommand(message));
     }
+
+    public static void log(char message){
+        logger.log(new CharCommand(message));
+    }
+
+    public static void log(boolean message){
+        logger.log(new BooleanCommand(message));
+    }
+
+    public static void log(String message){
+        logger.log(new StringCommand(message));
+    }
+
+    public static void log(String... message){
+        logger.log(new StringCommand(message));
+    }
+
+    public static void log(Object message){
+        logger.log(new ObjectCommand(message));
+    }
+
+    public static void log(int[] message){
+        logger.log(new ArrayCommand(message));
+    }
+
+    public static void log(int[][] message){
+        logger.log(new MatrixCommand(message));
+    }
+
+    public static void log(int[][][][] message){
+        logger.log(new MultiMatrixCommand(message));
+    }
+
 
     public static void main(String[] args) {
         System.out.println(1 + 2 + "3" + 4 + 5);
+        Logger.log(3);
+        Logger.log(4);
     }
 }
 
-class Superman {
-    private static Superman theOne = new Superman();
-
-    public static Superman getTheOne() {
-        return theOne;
-    }
-
-    //=========
-
-    private Superman() { }
-}
